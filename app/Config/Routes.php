@@ -14,3 +14,8 @@ $routes->get('operations/compute', 'Operations::compute');
 // POS System Routes
 $routes->get('customer-accounts', 'CustomerAccounts::index');
 $routes->get('user-accounts', 'UserAccounts::index');
+
+// Task Management System Routes
+$routes->get('tasks', 'Tasks::index');
+$routes->get('profile', 'Profile::index');
+$routes->get('about', 'About::index');

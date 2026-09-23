@@ -1,7 +1,7 @@
-# TFA2 POS System - MySQL Database Integration Setup Instructions
+# TSA1 POS System - MySQL Database Integration Setup Instructions
 
 ## Overview
-This document provides step-by-step instructions for setting up and testing the TFA2 POS System with MySQL database integration.
+This document provides step-by-step instructions for setting up and testing the TSA1 POS System with MySQL database integration.
 
 ## Prerequisites
 - XAMPP installed (includes Apache, MySQL, PHP)
@@ -16,7 +16,7 @@ This document provides step-by-step instructions for setting up and testing the 
 ## Step 2: Create Database and Tables
 ### Option A: Using the PHP Setup Script (Recommended)
 1. Open your web browser
-2. Navigate to: `http://localhost/TFA2Camacho/setup_database.php`
+2. Navigate to: `http://localhost/TSA1Camacho/setup_database.php`
 3. The script will automatically:
    - Create the `pos_db` database
    - Create `customers` and `users` tables
@@ -25,7 +25,7 @@ This document provides step-by-step instructions for setting up and testing the 
 ### Option B: Using phpMyAdmin
 1. Open phpMyAdmin: `http://localhost/phpmyadmin`
 2. Click "New" to create a new database
-3. Name it: `tfa2camacho`
+3. Name it: `tsa1camacho`
 4. Click "Create"
 5. Run the SQL from `database_setup.sql` file:
    ```sql
@@ -63,7 +63,7 @@ This document provides step-by-step instructions for setting up and testing the 
 The `.env` file is already configured with:
 ```
 database.default.hostname = localhost
-database.default.database = tfa2camacho
+database.default.database = tsa1camacho
 database.default.username = root
 database.default.password =
 database.default.DBDriver = MySQLi
@@ -73,16 +73,16 @@ database.default.port = 3306
 
 ## Step 4: Test the Application
 1. Open your web browser
-2. Navigate to: `http://localhost/TFA2Camacho/`
+2. Navigate to: `http://localhost/TSA1Camacho/`
 3. You should see the POS System home page with navigation options
 
 ### Test Customer Accounts
-1. Click "Customer Accounts" or navigate to: `http://localhost/TFA2Camacho/customer-accounts`
+1. Click "Customer Accounts" or navigate to: `http://localhost/TSA1Camacho/customer-accounts`
 2. Verify that 5 customer records are displayed in a table
 3. Check that all fields (ID, Full Name, Email, Phone, Created At) are visible
 
 ### Test User Accounts
-1. Click "User Accounts" or navigate to: `http://localhost/TFA2Camacho/user-accounts`
+1. Click "User Accounts" or navigate to: `http://localhost/TSA1Camacho/user-accounts`
 2. Verify that 5 user records are displayed in a table
 3. Check that all fields (ID, Username, Full Name, Created At) are visible
 
@@ -108,7 +108,7 @@ database.default.port = 3306
 ## Architecture Overview
 
 ```
-MySQL Database (tfa2camacho)
+MySQL Database (tsa1camacho)
 ├── customers table
 └── users table
         │
@@ -156,7 +156,7 @@ Views
 ### Database Connection Issues
 1. Ensure MySQL service is running in XAMPP
 2. Check that `.env` file exists and has correct database settings
-3. Verify database name is `tfa2camacho`
+3. Verify database name is `tsa1camacho`
 4. Check MySQL username is `root` with no password (default XAMPP setting)
 
 ### Blank Pages or Errors
@@ -171,18 +171,18 @@ Views
 
 ## Verification Checklist
 - [ ] XAMPP Apache and MySQL services are running
-- [ ] Database `tfa2camacho` exists
+- [ ] Database `tsa1camacho` exists
 - [ ] Table `customers` exists with 5+ records
 - [ ] Table `users` exists with 5+ records
 - [ ] `.env` file is configured correctly
-- [ ] Home page loads at `http://localhost/TFA2Camacho/`
+- [ ] Home page loads at `http://localhost/TSA1Camacho/`
 - [ ] Customer accounts page displays data correctly
 - [ ] User accounts page displays data correctly
 - [ ] Navigation between pages works
 - [ ] No PHP errors in logs
 
 ## Summary
-The TFA2 POS System has been successfully extended with MySQL database integration. The application now:
+The TSA1 POS System has been successfully extended with MySQL database integration. The application now:
 - Uses real MySQL database instead of static arrays
 - Follows CodeIgniter 4 MVC conventions
 - Maintains the original UI/UX design

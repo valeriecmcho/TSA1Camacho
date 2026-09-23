@@ -15,6 +15,7 @@ class UserModel extends Model
     protected $allowedFields = [
         'username',
         'full_name',
+        'email',
         'created_at'
     ];
 
@@ -28,7 +29,8 @@ class UserModel extends Model
     // Validation
     protected $validationRules = [
         'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
-        'full_name' => 'required|min_length[3]|max_length[100]'
+        'full_name' => 'required|min_length[3]|max_length[100]',
+        'email' => 'required|valid_email|max_length[100]'
     ];
     protected $validationMessages = [
         'username' => [
@@ -41,7 +43,18 @@ class UserModel extends Model
             'required' => 'Full name is required',
             'min_length' => 'Full name must be at least 3 characters',
             'max_length' => 'Full name cannot exceed 100 characters'
+        ],
+        'email' => [
+            'required' => 'Email is required',
+            'valid_email' => 'Please enter a valid email address',
+            'max_length' => 'Email cannot exceed 100 characters'
         ]
     ];
     protected $skipValidation = false;
+
+    // Get demo user
+    public function getDemoUser()
+    {
+        return $this->where('username', 'valerie_camacho')->first();
+    }
 }

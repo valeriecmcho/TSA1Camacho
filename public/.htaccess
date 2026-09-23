@@ -2,7 +2,7 @@ Options -Indexes -MultiViews
 
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	RewriteBase /TFA2Camacho/public/
+	RewriteBase /TSA1Camacho/public/
 
 	# Serve existing files/directories directly
 	RewriteCond %{REQUEST_FILENAME} -f [OR]

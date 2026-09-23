@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management System - Welcome</title>
+    <title>Task Management System - All Tasks</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,42 +36,8 @@
         .nav a:hover {
             text-decoration: underline;
         }
-        .card-container {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .card {
-            flex: 1;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            text-align: center;
-            transition: box-shadow 0.3s;
-        }
-        .card:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .card h2 {
-            color: #007bff;
-            margin-top: 0;
-        }
-        .card a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .card a:hover {
-            background-color: #0056b3;
-        }
         .task-list {
-            margin-top: 30px;
+            margin-top: 20px;
         }
         .task-item {
             background-color: #f8f9fa;
@@ -128,23 +94,24 @@
             <a href="<?= base_url('about') ?>">About</a>
         </div>
 
-        <h1>Task Management System</h1>
-        <p>Welcome! Here are your tasks scheduled for today (<?= date('F j, Y', strtotime($today)) ?>):</p>
+        <h1>All Tasks</h1>
+        <p>Here are all your tasks, ordered by due date:</p>
 
         <div class="task-list">
-            <?php if (!empty($todayTasks)): ?>
-                <?php foreach ($todayTasks as $task): ?>
+            <?php if (!empty($tasks)): ?>
+                <?php foreach ($tasks as $task): ?>
                     <div class="task-item">
                         <h3><?= esc($task['title']) ?></h3>
                         <div class="task-meta">
                             <span class="status <?= $task['status'] ?>"><?= ucfirst(str_replace('_', ' ', $task['status'])) ?></span>
                             <span> | Due: <?= date('F j, Y', strtotime($task['task_date'])) ?></span>
+                            <span> | Created: <?= date('F j, Y g:i A', strtotime($task['created_at'])) ?></span>
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="no-tasks">
-                    <p>No tasks scheduled for today!</p>
+                    <p>No tasks found!</p>
                 </div>
             <?php endif; ?>
         </div>

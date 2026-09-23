@@ -10,11 +10,11 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Create database
-    $pdo->exec("CREATE DATABASE IF NOT EXISTS tfa2camacho");
-    echo "Database 'tfa2camacho' created or already exists.<br>";
+    $pdo->exec("CREATE DATABASE IF NOT EXISTS tsa1camacho");
+    echo "Database 'tsa1camacho' created or already exists.<br>";
 
     // Select the database
-    $pdo->exec("USE tfa2camacho");
+    $pdo->exec("USE tsa1camacho");
 
     // Create customers table
     $pdo->exec("CREATE TABLE IF NOT EXISTS customers (

@@ -1,6 +1,6 @@
 -- Create the database
-CREATE DATABASE IF NOT EXISTS tfa2camacho;
-USE tfa2camacho;
+CREATE DATABASE IF NOT EXISTS tsa1camacho;
+USE tsa1camacho;
 
 -- Create customers table
 CREATE TABLE IF NOT EXISTS customers (
